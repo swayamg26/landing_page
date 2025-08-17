@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ceromancy Candle Wax Reading | Insight & Guidance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Courgette&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fffbe9;
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 36px 24px;
+      max-width: 420px;
+      margin: 48px auto;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
+      text-align: center;
+    }
+    h1 {
+      color: #b16a33;
+      font-family: 'Courgette', cursive;
+      margin-bottom: 18px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    .image {
+      margin: 30px 0 15px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1.2s forwards;
+      animation-delay: 0.2s;
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    p {
+      color: #574930;
+      font-size: 1.12em;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .countdown {
+      font-size: 1.25em;
+      color: #d54c20;
+      font-weight: 700;
+      margin-bottom: 14px;
+      margin-top: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1px;
+      animation: popDigits 0.8s;
+    }
+    @keyframes popDigits {
+      from {
+        opacity: 0.5;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1.0);
+      }
+    }
+    .limited-seats {
+      font-size: 1.03em;
+      color: #b16a33;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .cta-button {
+      padding: 15px 35px;
+      background: linear-gradient(90deg, #25D366 60%, #128C7E 100%);
+      color: #fff;
+      border: none;
+      border-radius: 26px;
+      font-size: 21px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(36, 209, 102, 0.15);
+      cursor: pointer;
+      transition: background 0.25s, box-shadow 0.25s;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      margin-top: 14px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 #25D36670;
+        transform: scale(1);
+      }
+      60% {
+        box-shadow: 0 0 12px 8px #25D36640;
+        transform: scale(1.04);
+      }
+      100% {
+        box-shadow: 0 0 0 0 #25D36670;
+        transform: scale(1);
+      }
+    }
+    .cta-button:hover {
+      background: linear-gradient(90deg, #1fae5a 60%, #086154 100%);
+      box-shadow: 0 8px 24px rgba(18,140,126,0.20);
+      transform: scale(1.06);
+    }
+    .testimonials {
+      font-style: italic;
+      color: #b16a33;
+      margin-top: 24px;
+      font-size: 1em;
+      font-family: 'Courgette', cursive;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeUp 1.4s 0.6s forwards;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 18px 6px;
+        max-width: 98%;
+      }
+      .image img {
+        width: 98%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ceromancy Candle Wax Reading</h1>
+    <div class="image">
+      <img src="image.jpg" alt="Ceromancy candle wax" width="340" style="border-radius:10px; box-shadow: 0 1px 14px #b16a338c;">
+    </div>
+
+    <div class="limited-seats">Limited seats! Event starts in:</div>
+    <div class="countdown" id="countdown"></div>
+
+    <a href="https://chat.whatsapp.com/Higgv4MJD7e14N68NOP87h?mode=ac_t" target="_blank">
+      <button class="cta-button">Join our WhatsApp group</button>
+    </a>
+
+    <p>
+      Unlock messages and guidance from the spiritual realm through the ancient art of candle wax reading.<br>
+      Discover symbolism in wax formations and get insights on love, career, healing, and more.<br>
+      <br>Ready for answers? Experience a session with a trusted practitioner today!
+    </p>
+    <div class="testimonials">“Amazingly accurate! I found clarity and peace.” – Sarah D.</div>
+  </div>
+
+  <script>
+    // Countdown to 19 August 2025, 9:00 PM IST (IST is UTC+5:30)
+    const countDownDate = new Date('2025-08-19T15:30:00Z').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = "Event Started!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // Re-trigger the popDigits animation
+      document.getElementById('countdown').style.animation = 'none';
+      void document.getElementById('countdown').offsetWidth;
+      document.getElementById('countdown').style.animation = null;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
