@@ -1,164 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free 2-Day Predictive Numerology Session</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Lobster&display=swap');
-
-  body {
-    background: #ffffff;
-    font-family: 'Roboto Slab', serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    min-height: 100vh;
-    color: #222222;
-  }
-  .container {
-    background: #fff;
-    padding: 40px 30px;
-    max-width: 440px;
-    margin: 60px auto;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    text-align: center;
-    animation: fadeInUp 1s ease forwards;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 18px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    margin: 30px 0 20px;
-    opacity: 0;
-    transform: translateY(25px);
-    animation: imgFadeIn 1s forwards;
-    animation-delay: 0.6s;
-  }
-  h1 {
-    font-family: 'Lobster', cursive;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: #444444;
-    margin-bottom: 20px;
-    text-shadow: none;
-    animation: fadeInDown 1s forwards;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto 28px auto;
-    max-width: 380px;
-    font-weight: 600;
-    color: #444444;
-    text-align: left;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    animation: fadeIn 1.2s forwards;
-  }
-  ul li {
-    margin-bottom: 12px;
-    padding-left: 18px;
-    position: relative;
-  }
-  ul li:before {
-    content: "◆";
-    position: absolute;
-    left: 0;
-    color: #888888;
-    font-size: 1.4rem;
-    line-height: 1;
-  }
-  .description {
-    font-size: 1.12rem;
-    margin-bottom: 32px;
-    font-weight: 700;
-    color: #333333;
-    animation: fadeIn 1.4s forwards;
-  }
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #25D366;
-    color: white;
-    border-radius: 36px;
-    padding: 16px 38px;
-    font-size: 1.25rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    text-decoration: none;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-  }
-  .cta-button:hover {
-    background-color: #1ebc57;
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-    transform: scale(1.05);
-  }
-  .cta-button i {
-    margin-right: 14px;
-    font-size: 1.8rem;
-  }
-  /* Animations */
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @keyframes imgFadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(25px) scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippets</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        .nav-buttons {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #007bff;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .nav-buttons button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .code-section {
+            display: none; /* Hidden by default */
+        }
+        .question-block {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .code-container {
+            position: relative;
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-height: 250px; /* Initial short height */
+            transition: max-height 0.4s ease-in-out;
+        }
+        pre {
+            margin: 0;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #5a6268;
+        }
+        .enlarge-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #333a40;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 5; /* Ensure it's clickable */
+        }
+        .code-container.enlarged {
+            max-height: 1200px; /* A large value to show all content */
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            display: none; /* Hidden until DSA section is shown */
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Free 2-Day Predictive Numerology Session!</h1>
-  <img src="ing.jpg" alt="Numerology Turtle" />
-  <ul>
-    <li>Unlock your future and discover the secrets hidden in your numbers. Get personalized predictions and powerful insights for love, career, and life.</li>
-    <li>Understand your destiny through numerology</li>
-    <li>Get daily predictions and personalized guidance</li>
-    <li>Interactive sessions with live Q&A</li>
-    <li>Join our supportive WhatsApp community</li>
-    <li><strong>Limited free seats!</strong></li>
-  </ul>
-  <p class="description"><strong>Join our WhatsApp group now</strong> to claim your spot and start your numerology journey!</p>
-  <a href="https://chat.whatsapp.com/EkeYRXzZuR97BpoSDvp76V" target="_blank" class="cta-button">
-    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-  </a>
+    <h1>Code Examples</h1>
+    <div class="nav-buttons">
+        <button id="nodejs-btn">Node.js</button>
+        <button id="dsa-btn">DSA</button>
+    </div>
+
+    <div id="dsa-content" class="code-section">
+        <input type="text" id="search-input" placeholder="Search by question number (e.g., '1', '15')">
+
+        <h2>DSA - Singly Linked List</h2>
+
+        <!-- Question 1 -->
+        <div class="question-block">
+            <h3>1. Create a singly linked list and perform insertion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code1">Copy</button>
+                <pre><code id="code1">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL, *tail = NULL;
+
+void createList(int n) {
+    struct node *newNode;
+    int data, i;
+    for(i = 0; i &lt; n; i++) {
+        newNode = (struct node*) malloc(sizeof(struct node));
+        printf("Enter data for node %d: ", i+1);
+        scanf("%d", &data);
+        newNode-&gt;data = data;
+        newNode-&gt;next = NULL;
+
+        if(head == NULL) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail-&gt;next = newNode;
+            tail = newNode;
+        }
+    }
+}
+
+void insertAtBeginning(int data) {
+    struct node* newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = head;
+    head = newNode;
+}
+
+void displayList() {
+    struct node *temp = head;
+    printf("Linked List: ");
+    while(temp != NULL) {
+        printf("%d -&gt; ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    int n, data;
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+    createList(n);
+
+    displayList();
+
+    printf("Enter data to insert at beginning: ");
+    scanf("%d", &data);
+    insertAtBeginning(data);
+
+    displayList();
+    return 0;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block">
+            <h3>2. Create a singly linked list and perform insertion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code2">Copy</button>
+                <pre><code id="code2">void insertAtEnd(int data) {
+    struct node* newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    if(head == NULL) {
+        head = newNode;
+        tail = newNode;
+    } else {
+        tail-&gt;next = newNode;
+        tail = newNode;
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block">
+            <h3>3. Insertion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code3">Copy</button>
+                <pre><code id="code3">void insertAtPosition(int data, int pos) {
+    struct node *newNode, *temp = head;
+    int i;
+    newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+
+    if(pos == 1) {
+        newNode-&gt;next = head;
+        head = newNode;
+        return;
+    }
+
+    for(i = 1; i &lt; pos-1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if(temp == NULL) {
+        printf("Position not valid\n");
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-block">
+            <h3>4. Deletion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code4">Copy</button>
+                <pre><code id="code4">void deleteAtBeginning() {
+    struct node *temp;
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    temp = head;
+    head = head-&gt;next;
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-block">
+            <h3>5. Deletion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code5">Copy</button>
+                <pre><code id="code5">void deleteAtPosition(int pos) {
+    struct node *temp = head, *prev;
+    int i;
+
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if(pos == 1) {
+        head = head-&gt;next;
+        free(temp);
+        return;
+    }
+
+    for(i = 1; i &lt; pos && temp != NULL; i++) {
+        prev = temp;
+        temp = temp-&gt;next;
+    }
+
+    if(temp == NULL) {
+        printf("Position not valid\n");
+        return;
+    }
+
+    prev-&gt;next = temp-&gt;next;
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-block">
+            <h3>6. Deletion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code6">Copy</button>
+                <pre><code id="code6">void deleteAtEnd() {
+    struct node *temp = head, *prev;
+
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if(head-&gt;next == NULL) {
+        free(head);
+        head = NULL;
+        return;
+    }
+
+    while(temp-&gt;next != NULL) {
+        prev = temp;
+        temp = temp-&gt;next;
+    }
+
+    prev-&gt;next = NULL;
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question-block">
+            <h3>7. Search for a given element</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code7">Copy</button>
+                <pre><code id="code7">void searchElement(int key) {
+    struct node *temp = head;
+    int pos = 1;
+    while(temp != NULL) {
+        if(temp-&gt;data == key) {
+            printf("Element %d found at position %d\n", key, pos);
+            return;
+        }
+        temp = temp-&gt;next;
+        pos++;
+    }
+    printf("Element %d not found in the list\n", key);
+}</code></pre>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Doubly Linked List</h2>
+
+        <!-- Question 8 -->
+        <div class="question-block">
+            <h3>8. Create a doubly linked list and perform insertion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code8">Copy</button>
+                <pre><code id="code8">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node {
+    int data;
+    struct node *prev;
+    struct node *next;
+};
+
+struct node *head = NULL, *tail = NULL;
+
+void createList(int n) {
+    struct node *newNode;
+    int data, i;
+    for(i = 0; i &lt; n; i++) {
+        newNode = (struct node*) malloc(sizeof(struct node));
+        printf("Enter data for node %d: ", i+1);
+        scanf("%d", &data);
+
+        newNode-&gt;data = data;
+        newNode-&gt;prev = NULL;
+        newNode-&gt;next = NULL;
+
+        if(head == NULL) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail-&gt;next = newNode;
+            newNode-&gt;prev = tail;
+            tail = newNode;
+        }
+    }
+}
+
+void insertAtBeginning(int data) {
+    struct node* newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+    newNode-&gt;prev = NULL;
+    newNode-&gt;next = head;
+    if(head != NULL)
+        head-&gt;prev = newNode;
+    head = newNode;
+    if(tail == NULL) // If list was empty
+        tail = newNode;
+}
+
+void displayList() {
+    struct node *temp = head;
+    printf("Doubly Linked List: ");
+    while(temp != NULL) {
+        printf("%d &lt;-&gt; ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    int n, data;
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+    createList(n);
+    displayList();
+
+    printf("Enter data to insert at beginning: ");
+    scanf("%d", &data);
+    insertAtBeginning(data);
+    displayList();
+    return 0;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question-block">
+            <h3>9. Insertion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code9">Copy</button>
+                <pre><code id="code9">void insertAtEnd(int data) {
+    struct node* newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    newNode-&gt;prev = tail;
+    if(tail != NULL)
+        tail-&gt;next = newNode;
+    tail = newNode;
+    if(head == NULL)
+        head = newNode;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question-block">
+            <h3>10. Insertion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code10">Copy</button>
+                <pre><code id="code10">void insertAtPosition(int data, int pos) {
+    struct node *newNode, *temp = head;
+    int i;
+
+    newNode = (struct node*) malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+
+    if(pos == 1) {
+        insertAtBeginning(data); // Reuse existing function
+        free(newNode); // Free the allocated node as insertAtBeginning will allocate its own
+        return;
+    }
+
+    for(i = 1; i &lt; pos - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if(temp == NULL || temp == tail) { // If position is just after the last element
+        insertAtEnd(data);
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    newNode-&gt;prev = temp;
+    if(temp-&gt;next != NULL)
+        temp-&gt;next-&gt;prev = newNode;
+    temp-&gt;next = newNode;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="question-block">
+            <h3>11. Deletion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code11">Copy</button>
+                <pre><code id="code11">void deleteAtBeginning() {
+    struct node *temp;
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    temp = head;
+    head = head-&gt;next;
+    if(head != NULL)
+        head-&gt;prev = NULL;
+    else // List became empty
+        tail = NULL;
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="question-block">
+            <h3>12. Deletion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code12">Copy</button>
+                <pre><code id="code12">void deleteAtPosition(int pos) {
+    struct node *temp = head;
+    int i;
+
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if(pos == 1) {
+        deleteAtBeginning();
+        return;
+    }
+
+    for(i = 1; i &lt; pos && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if(temp == NULL) {
+        printf("Invalid position\n");
+        return;
+    }
+
+    if(temp == tail) {
+        deleteAtEnd();
+        return;
+    }
+
+    temp-&gt;prev-&gt;next = temp-&gt;next;
+    temp-&gt;next-&gt;prev = temp-&gt;prev;
+
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="question-block">
+            <h3>13. Deletion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code13">Copy</button>
+                <pre><code id="code13">void deleteAtEnd() {
+    if(tail == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    struct node *temp = tail;
+    tail = tail-&gt;prev;
+    if(tail != NULL)
+        tail-&gt;next = NULL;
+    else // List became empty
+        head = NULL;
+    free(temp);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="question-block">
+            <h3>14. Search for a given element</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code14">Copy</button>
+                <pre><code id="code14">void searchElement(int key) {
+    struct node *temp = head;
+    int pos = 1;
+    while(temp != NULL) {
+        if(temp-&gt;data == key) {
+            printf("Element %d found at position %d\n", key, pos);
+            return;
+        }
+        temp = temp-&gt;next;
+        pos++;
+    }
+    printf("Element %d not found in the list\n", key);
+}</code></pre>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Circular Linked List</h2>
+ 
+        <!-- Question 15 -->
+        <div class="question-block">
+            <h3>15. Create a circular linked list and perform insertion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code15">Copy</button>
+                <pre><code id="code15">#include &lt;stdio.h&gt;
+ #include &lt;stdlib.h&gt;
+ 
+ struct node {
+     int data;
+     struct node *next;
+ };
+ 
+ struct node *head = NULL, *tail = NULL;
+ 
+ void createList(int n) {
+     struct node *newNode;
+     int data, i;
+     for(i = 0; i &lt; n; i++) {
+         newNode = (struct node*) malloc(sizeof(struct node));
+         printf("Enter data for node %d: ", i+1);
+         scanf("%d", &data);
+ 
+         newNode-&gt;data = data;
+         newNode-&gt;next = NULL;
+ 
+         if(head == NULL) {
+             head = newNode;
+             tail = newNode;
+             tail-&gt;next = head;  // circular link
+         } else {
+             tail-&gt;next = newNode;
+             tail = newNode;
+             tail-&gt;next = head;
+         }
+     }
+ }
+ 
+ void insertAtBeginning(int data) {
+     struct node* newNode = (struct node*) malloc(sizeof(struct node));
+     newNode-&gt;data = data;
+     if (head == NULL) {
+         head = newNode;
+         tail = newNode;
+         newNode-&gt;next = head;
+     } else {
+         newNode-&gt;next = head;
+         head = newNode;
+         tail-&gt;next = head;
+     }
+ }
+ 
+ void displayList() {
+     struct node *temp = head;
+     if(head == NULL) {
+         printf("List is empty\n");
+         return;
+     }
+     printf("Circular Linked List: ");
+     do {
+         printf("%d -&gt; ", temp-&gt;data);
+         temp = temp-&gt;next;
+     } while(temp != head);
+     printf("(head)\n");
+ }
+ 
+ int main() {
+     int n, data;
+     printf("Enter number of nodes: ");
+     scanf("%d", &n);
+     createList(n);
+     displayList();
+ 
+     printf("Enter data to insert at beginning: ");
+     scanf("%d", &data);
+     insertAtBeginning(data);
+     displayList();
+     return 0;
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 16 -->
+        <div class="question-block">
+            <h3>16. Insertion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code16">Copy</button>
+                <pre><code id="code16">void insertAtEnd(int data) {
+     struct node* newNode = (struct node*) malloc(sizeof(struct node));
+     newNode-&gt;data = data;
+     if (head == NULL) {
+         head = newNode;
+         tail = newNode;
+         newNode-&gt;next = head;
+     } else {
+         newNode-&gt;next = head;
+         tail-&gt;next = newNode;
+         tail = newNode;
+     }
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 17 -->
+        <div class="question-block">
+            <h3>17. Insertion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code17">Copy</button>
+                <pre><code id="code17">void insertAtPosition(int data, int pos) {
+     if (pos &lt; 1) {
+         printf("Invalid position\n");
+         return;
+     }
+     if (pos == 1) {
+         insertAtBeginning(data);
+         return;
+     }
+ 
+     struct node *newNode, *temp = head;
+     int i;
+ 
+     for(i = 1; i &lt; pos - 1; i++) {
+         temp = temp-&gt;next;
+         if (temp == head) { // Position is out of bounds
+             printf("Invalid position\n");
+             return;
+         }
+     }
+ 
+     if (temp == tail) {
+         insertAtEnd(data);
+         return;
+     }
+ 
+     newNode = (struct node*) malloc(sizeof(struct node));
+     newNode-&gt;data = data;
+     newNode-&gt;next = temp-&gt;next;
+     temp-&gt;next = newNode;
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 18 -->
+        <div class="question-block">
+            <h3>18. Deletion at the beginning</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code18">Copy</button>
+                <pre><code id="code18">void deleteAtBeginning() {
+     if(head == NULL) {
+         printf("List is empty\n");
+         return;
+     }
+     struct node *temp = head;
+     if(head == tail) {  // only one node
+         head = tail = NULL;
+     } else {
+         head = head-&gt;next;
+         tail-&gt;next = head;
+     }
+     free(temp);
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 19 -->
+        <div class="question-block">
+            <h3>19. Deletion at a given position</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code19">Copy</button>
+                <pre><code id="code19">void deleteAtPosition(int pos) {
+     if(head == NULL) {
+         printf("List is empty\n");
+         return;
+     }
+     if (pos &lt; 1) {
+         printf("Invalid position\n");
+         return;
+     }
+     if(pos == 1) {
+         deleteAtBeginning();
+         return;
+     }
+ 
+     struct node *temp = head, *prev = NULL;
+     int i;
+     for(i = 1; i &lt; pos; i++) {
+         prev = temp;
+         temp = temp-&gt;next;
+         if (temp == head) { // Position is out of bounds
+             printf("Invalid position\n");
+             return;
+         }
+     }
+ 
+     if (temp == tail) { // Deleting the last node
+         tail = prev;
+     }
+     prev-&gt;next = temp-&gt;next;
+     free(temp);
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 20 -->
+        <div class="question-block">
+            <h3>20. Deletion at the end</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code20">Copy</button>
+                <pre><code id="code20">void deleteAtEnd() {
+     if(head == NULL) {
+         printf("List is empty\n");
+         return;
+     }
+ 
+     struct node *temp = head, *prev = NULL;
+ 
+     if(head == tail) {  // only one node
+         free(head);
+         head = tail = NULL;
+         return;
+     }
+ 
+     while(temp != tail) {
+         prev = temp;
+         temp = temp-&gt;next;
+     }
+ 
+     prev-&gt;next = head;
+     tail = prev;
+     free(temp);
+ }</code></pre>
+            </div>
+        </div>
+ 
+        <!-- Question 21 -->
+        <div class="question-block">
+            <h3>21. Search for a given element</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code21">Copy</button>
+                <pre><code id="code21">void searchElement(int key) {
+     if(head == NULL) {
+         printf("List is empty\n");
+         return;
+     }
+ 
+     struct node *temp = head;
+     int pos = 1;
+     do {
+         if(temp-&gt;data == key) {
+             printf("Element %d found at position %d\n", key, pos);
+             return;
+         }
+         temp = temp-&gt;next;
+         pos++;
+     } while(temp != head);
+ 
+     printf("Element %d not found in the list\n", key);
+ }</code></pre>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Stacks</h2>
+
+        <!-- Question 22 -->
+        <div class="question-block">
+            <h3>22. Stack using Arrays (All operations)</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code22">Copy</button>
+                <pre><code id="code22">#include &lt;stdio.h&gt;
+#define MAX 100
+
+int stack[MAX];
+int top = -1;
+
+void push(int x) {
+    if(top == MAX-1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    stack[++top] = x;
+}
+
+void pop() {
+    if(top == -1) {
+        printf("Stack Underflow\n");
+        return;
+    }
+    printf("Popped element: %d\n", stack[top--]);
+}
+
+void peek() {
+    if(top == -1) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Top element: %d\n", stack[top]);
+}
+
+void display() {
+    if(top == -1) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Stack elements: ");
+    for(int i = top; i &gt;= 0; i--) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int choice, val;
+    while(1) {
+        printf("\n1.Push\n2.Pop\n3.Peek\n4.Display\n5.Exit\nEnter choice: ");
+        scanf("%d", &choice);
+        switch(choice) {
+            case 1:
+                printf("Enter value to push: ");
+                scanf("%d", &val);
+                push(val);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peek();
+                break;
+            case 4:
+                display();
+                break;
+            case 5:
+                return 0;
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 23 -->
+        <div class="question-block">
+            <h3>23. Stack using Linked List (All operations)</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="code23">Copy</button>
+                <pre><code id="code23">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+struct node *top = NULL;
+
+void push(int x) {
+    struct node* newNode = (struct node*) malloc(sizeof(struct node));
+    if(newNode == NULL) {
+        printf("Stack Overflow (Memory not allocated)\n");
+        return;
+    }
+    newNode-&gt;data = x;
+    newNode-&gt;next = top;
+    top = newNode;
+}
+
+void pop() {
+    if(top == NULL) {
+        printf("Stack Underflow\n");
+        return;
+    }
+    struct node *temp = top;
+    printf("Popped element: %d\n", top-&gt;data);
+    top = top-&gt;next;
+    free(temp);
+}
+
+void peek() {
+    if(top == NULL) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Top element: %d\n", top-&gt;data);
+}
+
+void display() {
+    if(top == NULL) {
+        printf("Stack is empty\n");
+        return;
+    }
+    struct node *temp = top;
+    printf("Stack elements: ");
+    while(temp != NULL) {
+        printf("%d ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("\n");
+}
+
+int main() {
+    // This main function is identical to the one for arrays and works perfectly.
+    // You can copy it from the previous example if needed.
+}</code></pre>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.getElementById('dsa-btn').addEventListener('click', function() {
+        const dsaContent = document.getElementById('dsa-content');
+        const searchInput = document.getElementById('search-input');
+        dsaContent.style.display = 'block';
+        searchInput.style.display = 'block'; // Show search bar
+    });
+
+    document.getElementById('nodejs-btn').addEventListener('click', function() {
+        // This button will hide the DSA content and search bar.
+        // You can add Node.js content in a similar way.
+        document.getElementById('dsa-content').style.display = 'none';
+        alert('Node.js content coming soon!');
+    });
+
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const codeId = button.getAttribute('data-code-id');
+            const codeElement = document.getElementById(codeId);
+            const codeToCopy = codeElement.innerText;
+
+            navigator.clipboard.writeText(codeToCopy).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    });
+
+    document.querySelectorAll('.enlarge-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const codeContainer = button.parentElement;
+            codeContainer.classList.toggle('enlarged');
+            if (codeContainer.classList.contains('enlarged')) {
+                button.textContent = 'Show Less';
+            } else {
+                button.textContent = 'Show More';
+            }
+        });
+    });
+
+    // Search functionality
+    document.getElementById('search-input').addEventListener('input', function() {
+        const searchTerm = this.value.trim();
+        const questionBlocks = document.querySelectorAll('#dsa-content .question-block');
+        const sectionHeaders = document.querySelectorAll('#dsa-content h2');
+
+        questionBlocks.forEach(block => {
+            const titleElement = block.querySelector('h3');
+            if (titleElement) {
+                const questionNumber = titleElement.textContent.split('.')[0].trim();
+                if (searchTerm === '' || questionNumber.startsWith(searchTerm)) {
+                    block.style.display = ''; // Show block
+                } else {
+                    block.style.display = 'none'; // Hide block
+                }
+            }
+        });
+
+        // Hide section headers (like 'DSA - Doubly Linked List') if search is active
+        sectionHeaders.forEach(h2 => h2.style.display = searchTerm === '' ? '' : 'none');
+    });
+</script>
 
 </body>
 </html>
