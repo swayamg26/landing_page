@@ -24,28 +24,8 @@
         h1, h2 {
             color: #0056b3;
         }
-        .nav-buttons {
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-        }
-        .nav-buttons button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 1px solid #007bff;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            margin-right: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .nav-buttons button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
         .code-section {
-            display: none; /* Hidden by default */
+            display: block; 
         }
         .question-block {
             margin-bottom: 30px;
@@ -111,931 +91,103 @@
 
 <div class="container">
     <h1>Code Examples</h1>
-    <div class="nav-buttons">
-        <button id="nodejs-btn">Node.js</button>
-        <button id="dsa-btn">DSA</button>
-    </div>
 
-    <div id="dsa-content" class="code-section">
-        <input type="text" id="search-input" placeholder="Search by question number (e.g., '1', '15')">
-
-        <h2>DSA - Singly Linked List</h2>
+    <div id="nodejs-content" class="code-section">
+        <h2>Node.js Frontend Examples</h2>
 
         <!-- Question 1 -->
         <div class="question-block">
-            <h3>1. Create a singly linked list and perform insertion at the beginning</h3>
+            <h3>1. Create a responsive product catalog page using Bootstrap 5</h3>
             <div class="code-container">
                 <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code1">Copy</button>
-                <pre><code id="code1">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-struct node {
-    int data;
-    struct node *next;
-};
-
-struct node *head = NULL, *tail = NULL;
-
-void createList(int n) {
-    struct node *newNode;
-    int data, i;
-    for(i = 0; i &lt; n; i++) {
-        newNode = (struct node*) malloc(sizeof(struct node));
-        printf("Enter data for node %d: ", i+1);
-        scanf("%d", &data);
-        newNode-&gt;data = data;
-        newNode-&gt;next = NULL;
-
-        if(head == NULL) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail-&gt;next = newNode;
-            tail = newNode;
-        }
-    }
-}
-
-void insertAtBeginning(int data) {
-    struct node* newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-    newNode-&gt;next = head;
-    head = newNode;
-}
-
-void displayList() {
-    struct node *temp = head;
-    printf("Linked List: ");
-    while(temp != NULL) {
-        printf("%d -&gt; ", temp-&gt;data);
-        temp = temp-&gt;next;
-    }
-    printf("NULL\n");
-}
-
-int main() {
-    int n, data;
-    printf("Enter number of nodes: ");
-    scanf("%d", &n);
-    createList(n);
-
-    displayList();
-
-    printf("Enter data to insert at beginning: ");
-    scanf("%d", &data);
-    insertAtBeginning(data);
-
-    displayList();
-    return 0;
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="question-block">
-            <h3>2. Create a singly linked list and perform insertion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code2">Copy</button>
-                <pre><code id="code2">void insertAtEnd(int data) {
-    struct node* newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-    newNode-&gt;next = NULL;
-    if(head == NULL) {
-        head = newNode;
-        tail = newNode;
-    } else {
-        tail-&gt;next = newNode;
-        tail = newNode;
-    }
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 3 -->
-        <div class="question-block">
-            <h3>3. Insertion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code3">Copy</button>
-                <pre><code id="code3">void insertAtPosition(int data, int pos) {
-    struct node *newNode, *temp = head;
-    int i;
-    newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-
-    if(pos == 1) {
-        newNode-&gt;next = head;
-        head = newNode;
-        return;
-    }
-
-    for(i = 1; i &lt; pos-1 && temp != NULL; i++) {
-        temp = temp-&gt;next;
-    }
-
-    if(temp == NULL) {
-        printf("Position not valid\n");
-        return;
-    }
-
-    newNode-&gt;next = temp-&gt;next;
-    temp-&gt;next = newNode;
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 4 -->
-        <div class="question-block">
-            <h3>4. Deletion at the beginning</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code4">Copy</button>
-                <pre><code id="code4">void deleteAtBeginning() {
-    struct node *temp;
-    if(head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    temp = head;
-    head = head-&gt;next;
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 5 -->
-        <div class="question-block">
-            <h3>5. Deletion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code5">Copy</button>
-                <pre><code id="code5">void deleteAtPosition(int pos) {
-    struct node *temp = head, *prev;
-    int i;
-
-    if(head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-
-    if(pos == 1) {
-        head = head-&gt;next;
-        free(temp);
-        return;
-    }
-
-    for(i = 1; i &lt; pos && temp != NULL; i++) {
-        prev = temp;
-        temp = temp-&gt;next;
-    }
-
-    if(temp == NULL) {
-        printf("Position not valid\n");
-        return;
-    }
-
-    prev-&gt;next = temp-&gt;next;
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 6 -->
-        <div class="question-block">
-            <h3>6. Deletion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code6">Copy</button>
-                <pre><code id="code6">void deleteAtEnd() {
-    struct node *temp = head, *prev;
-
-    if(head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-
-    if(head-&gt;next == NULL) {
-        free(head);
-        head = NULL;
-        return;
-    }
-
-    while(temp-&gt;next != NULL) {
-        prev = temp;
-        temp = temp-&gt;next;
-    }
-
-    prev-&gt;next = NULL;
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 7 -->
-        <div class="question-block">
-            <h3>7. Search for a given element</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code7">Copy</button>
-                <pre><code id="code7">void searchElement(int key) {
-    struct node *temp = head;
-    int pos = 1;
-    while(temp != NULL) {
-        if(temp-&gt;data == key) {
-            printf("Element %d found at position %d\n", key, pos);
-            return;
-        }
-        temp = temp-&gt;next;
-        pos++;
-    }
-    printf("Element %d not found in the list\n", key);
-}</code></pre>
-            </div>
-        </div>
-
-        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Doubly Linked List</h2>
-
-        <!-- Question 8 -->
-        <div class="question-block">
-            <h3>8. Create a doubly linked list and perform insertion at the beginning</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code8">Copy</button>
-                <pre><code id="code8">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-struct node {
-    int data;
-    struct node *prev;
-    struct node *next;
-};
-
-struct node *head = NULL, *tail = NULL;
-
-void createList(int n) {
-    struct node *newNode;
-    int data, i;
-    for(i = 0; i &lt; n; i++) {
-        newNode = (struct node*) malloc(sizeof(struct node));
-        printf("Enter data for node %d: ", i+1);
-        scanf("%d", &data);
-
-        newNode-&gt;data = data;
-        newNode-&gt;prev = NULL;
-        newNode-&gt;next = NULL;
-
-        if(head == NULL) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail-&gt;next = newNode;
-            newNode-&gt;prev = tail;
-            tail = newNode;
-        }
-    }
-}
-
-void insertAtBeginning(int data) {
-    struct node* newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-    newNode-&gt;prev = NULL;
-    newNode-&gt;next = head;
-    if(head != NULL)
-        head-&gt;prev = newNode;
-    head = newNode;
-    if(tail == NULL) // If list was empty
-        tail = newNode;
-}
-
-void displayList() {
-    struct node *temp = head;
-    printf("Doubly Linked List: ");
-    while(temp != NULL) {
-        printf("%d &lt;-&gt; ", temp-&gt;data);
-        temp = temp-&gt;next;
-    }
-    printf("NULL\n");
-}
-
-int main() {
-    int n, data;
-    printf("Enter number of nodes: ");
-    scanf("%d", &n);
-    createList(n);
-    displayList();
-
-    printf("Enter data to insert at beginning: ");
-    scanf("%d", &data);
-    insertAtBeginning(data);
-    displayList();
-    return 0;
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 9 -->
-        <div class="question-block">
-            <h3>9. Insertion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code9">Copy</button>
-                <pre><code id="code9">void insertAtEnd(int data) {
-    struct node* newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-    newNode-&gt;next = NULL;
-    newNode-&gt;prev = tail;
-    if(tail != NULL)
-        tail-&gt;next = newNode;
-    tail = newNode;
-    if(head == NULL)
-        head = newNode;
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 10 -->
-        <div class="question-block">
-            <h3>10. Insertion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code10">Copy</button>
-                <pre><code id="code10">void insertAtPosition(int data, int pos) {
-    struct node *newNode, *temp = head;
-    int i;
-
-    newNode = (struct node*) malloc(sizeof(struct node));
-    newNode-&gt;data = data;
-
-    if(pos == 1) {
-        insertAtBeginning(data); // Reuse existing function
-        free(newNode); // Free the allocated node as insertAtBeginning will allocate its own
-        return;
-    }
-
-    for(i = 1; i &lt; pos - 1 && temp != NULL; i++) {
-        temp = temp-&gt;next;
-    }
-
-    if(temp == NULL || temp == tail) { // If position is just after the last element
-        insertAtEnd(data);
-        free(newNode);
-        return;
-    }
-
-    newNode-&gt;next = temp-&gt;next;
-    newNode-&gt;prev = temp;
-    if(temp-&gt;next != NULL)
-        temp-&gt;next-&gt;prev = newNode;
-    temp-&gt;next = newNode;
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 11 -->
-        <div class="question-block">
-            <h3>11. Deletion at the beginning</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code11">Copy</button>
-                <pre><code id="code11">void deleteAtBeginning() {
-    struct node *temp;
-    if(head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    temp = head;
-    head = head-&gt;next;
-    if(head != NULL)
-        head-&gt;prev = NULL;
-    else // List became empty
-        tail = NULL;
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 12 -->
-        <div class="question-block">
-            <h3>12. Deletion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code12">Copy</button>
-                <pre><code id="code12">void deleteAtPosition(int pos) {
-    struct node *temp = head;
-    int i;
-
-    if(head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-
-    if(pos == 1) {
-        deleteAtBeginning();
-        return;
-    }
-
-    for(i = 1; i &lt; pos && temp != NULL; i++) {
-        temp = temp-&gt;next;
-    }
-
-    if(temp == NULL) {
-        printf("Invalid position\n");
-        return;
-    }
-
-    if(temp == tail) {
-        deleteAtEnd();
-        return;
-    }
-
-    temp-&gt;prev-&gt;next = temp-&gt;next;
-    temp-&gt;next-&gt;prev = temp-&gt;prev;
-
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 13 -->
-        <div class="question-block">
-            <h3>13. Deletion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code13">Copy</button>
-                <pre><code id="code13">void deleteAtEnd() {
-    if(tail == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    struct node *temp = tail;
-    tail = tail-&gt;prev;
-    if(tail != NULL)
-        tail-&gt;next = NULL;
-    else // List became empty
-        head = NULL;
-    free(temp);
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 14 -->
-        <div class="question-block">
-            <h3>14. Search for a given element</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code14">Copy</button>
-                <pre><code id="code14">void searchElement(int key) {
-    struct node *temp = head;
-    int pos = 1;
-    while(temp != NULL) {
-        if(temp-&gt;data == key) {
-            printf("Element %d found at position %d\n", key, pos);
-            return;
-        }
-        temp = temp-&gt;next;
-        pos++;
-    }
-    printf("Element %d not found in the list\n", key);
-}</code></pre>
-            </div>
-        </div>
-
-        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Circular Linked List</h2>
- 
-        <!-- Question 15 -->
-        <div class="question-block">
-            <h3>15. Create a circular linked list and perform insertion at the beginning</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code15">Copy</button>
-                <pre><code id="code15">#include &lt;stdio.h&gt;
- #include &lt;stdlib.h&gt;
- 
- struct node {
-     int data;
-     struct node *next;
- };
- 
- struct node *head = NULL, *tail = NULL;
- 
- void createList(int n) {
-     struct node *newNode;
-     int data, i;
-     for(i = 0; i &lt; n; i++) {
-         newNode = (struct node*) malloc(sizeof(struct node));
-         printf("Enter data for node %d: ", i+1);
-         scanf("%d", &data);
- 
-         newNode-&gt;data = data;
-         newNode-&gt;next = NULL;
- 
-         if(head == NULL) {
-             head = newNode;
-             tail = newNode;
-             tail-&gt;next = head;  // circular link
-         } else {
-             tail-&gt;next = newNode;
-             tail = newNode;
-             tail-&gt;next = head;
-         }
-     }
- }
- 
- void insertAtBeginning(int data) {
-     struct node* newNode = (struct node*) malloc(sizeof(struct node));
-     newNode-&gt;data = data;
-     if (head == NULL) {
-         head = newNode;
-         tail = newNode;
-         newNode-&gt;next = head;
-     } else {
-         newNode-&gt;next = head;
-         head = newNode;
-         tail-&gt;next = head;
-     }
- }
- 
- void displayList() {
-     struct node *temp = head;
-     if(head == NULL) {
-         printf("List is empty\n");
-         return;
-     }
-     printf("Circular Linked List: ");
-     do {
-         printf("%d -&gt; ", temp-&gt;data);
-         temp = temp-&gt;next;
-     } while(temp != head);
-     printf("(head)\n");
- }
- 
- int main() {
-     int n, data;
-     printf("Enter number of nodes: ");
-     scanf("%d", &n);
-     createList(n);
-     displayList();
- 
-     printf("Enter data to insert at beginning: ");
-     scanf("%d", &data);
-     insertAtBeginning(data);
-     displayList();
-     return 0;
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 16 -->
-        <div class="question-block">
-            <h3>16. Insertion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code16">Copy</button>
-                <pre><code id="code16">void insertAtEnd(int data) {
-     struct node* newNode = (struct node*) malloc(sizeof(struct node));
-     newNode-&gt;data = data;
-     if (head == NULL) {
-         head = newNode;
-         tail = newNode;
-         newNode-&gt;next = head;
-     } else {
-         newNode-&gt;next = head;
-         tail-&gt;next = newNode;
-         tail = newNode;
-     }
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 17 -->
-        <div class="question-block">
-            <h3>17. Insertion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code17">Copy</button>
-                <pre><code id="code17">void insertAtPosition(int data, int pos) {
-     if (pos &lt; 1) {
-         printf("Invalid position\n");
-         return;
-     }
-     if (pos == 1) {
-         insertAtBeginning(data);
-         return;
-     }
- 
-     struct node *newNode, *temp = head;
-     int i;
- 
-     for(i = 1; i &lt; pos - 1; i++) {
-         temp = temp-&gt;next;
-         if (temp == head) { // Position is out of bounds
-             printf("Invalid position\n");
-             return;
-         }
-     }
- 
-     if (temp == tail) {
-         insertAtEnd(data);
-         return;
-     }
- 
-     newNode = (struct node*) malloc(sizeof(struct node));
-     newNode-&gt;data = data;
-     newNode-&gt;next = temp-&gt;next;
-     temp-&gt;next = newNode;
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 18 -->
-        <div class="question-block">
-            <h3>18. Deletion at the beginning</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code18">Copy</button>
-                <pre><code id="code18">void deleteAtBeginning() {
-     if(head == NULL) {
-         printf("List is empty\n");
-         return;
-     }
-     struct node *temp = head;
-     if(head == tail) {  // only one node
-         head = tail = NULL;
-     } else {
-         head = head-&gt;next;
-         tail-&gt;next = head;
-     }
-     free(temp);
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 19 -->
-        <div class="question-block">
-            <h3>19. Deletion at a given position</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code19">Copy</button>
-                <pre><code id="code19">void deleteAtPosition(int pos) {
-     if(head == NULL) {
-         printf("List is empty\n");
-         return;
-     }
-     if (pos &lt; 1) {
-         printf("Invalid position\n");
-         return;
-     }
-     if(pos == 1) {
-         deleteAtBeginning();
-         return;
-     }
- 
-     struct node *temp = head, *prev = NULL;
-     int i;
-     for(i = 1; i &lt; pos; i++) {
-         prev = temp;
-         temp = temp-&gt;next;
-         if (temp == head) { // Position is out of bounds
-             printf("Invalid position\n");
-             return;
-         }
-     }
- 
-     if (temp == tail) { // Deleting the last node
-         tail = prev;
-     }
-     prev-&gt;next = temp-&gt;next;
-     free(temp);
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 20 -->
-        <div class="question-block">
-            <h3>20. Deletion at the end</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code20">Copy</button>
-                <pre><code id="code20">void deleteAtEnd() {
-     if(head == NULL) {
-         printf("List is empty\n");
-         return;
-     }
- 
-     struct node *temp = head, *prev = NULL;
- 
-     if(head == tail) {  // only one node
-         free(head);
-         head = tail = NULL;
-         return;
-     }
- 
-     while(temp != tail) {
-         prev = temp;
-         temp = temp-&gt;next;
-     }
- 
-     prev-&gt;next = head;
-     tail = prev;
-     free(temp);
- }</code></pre>
-            </div>
-        </div>
- 
-        <!-- Question 21 -->
-        <div class="question-block">
-            <h3>21. Search for a given element</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code21">Copy</button>
-                <pre><code id="code21">void searchElement(int key) {
-     if(head == NULL) {
-         printf("List is empty\n");
-         return;
-     }
- 
-     struct node *temp = head;
-     int pos = 1;
-     do {
-         if(temp-&gt;data == key) {
-             printf("Element %d found at position %d\n", key, pos);
-             return;
-         }
-         temp = temp-&gt;next;
-         pos++;
-     } while(temp != head);
- 
-     printf("Element %d not found in the list\n", key);
- }</code></pre>
-            </div>
-        </div>
-
-        <h2 style="margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px;">DSA - Stacks</h2>
-
-        <!-- Question 22 -->
-        <div class="question-block">
-            <h3>22. Stack using Arrays (All operations)</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code22">Copy</button>
-                <pre><code id="code22">#include &lt;stdio.h&gt;
-#define MAX 100
-
-int stack[MAX];
-int top = -1;
-
-void push(int x) {
-    if(top == MAX-1) {
-        printf("Stack Overflow\n");
-        return;
-    }
-    stack[++top] = x;
-}
-
-void pop() {
-    if(top == -1) {
-        printf("Stack Underflow\n");
-        return;
-    }
-    printf("Popped element: %d\n", stack[top--]);
-}
-
-void peek() {
-    if(top == -1) {
-        printf("Stack is empty\n");
-        return;
-    }
-    printf("Top element: %d\n", stack[top]);
-}
-
-void display() {
-    if(top == -1) {
-        printf("Stack is empty\n");
-        return;
-    }
-    printf("Stack elements: ");
-    for(int i = top; i &gt;= 0; i--) {
-        printf("%d ", stack[i]);
-    }
-    printf("\n");
-}
-
-int main() {
-    int choice, val;
-    while(1) {
-        printf("\n1.Push\n2.Pop\n3.Peek\n4.Display\n5.Exit\nEnter choice: ");
-        scanf("%d", &choice);
-        switch(choice) {
-            case 1:
-                printf("Enter value to push: ");
-                scanf("%d", &val);
-                push(val);
-                break;
-            case 2:
-                pop();
-                break;
-            case 3:
-                peek();
-                break;
-            case 4:
-                display();
-                break;
-            case 5:
-                return 0;
-            default:
-                printf("Invalid choice\n");
-        }
-    }
-}</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 23 -->
-        <div class="question-block">
-            <h3>23. Stack using Linked List (All operations)</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="code23">Copy</button>
-                <pre><code id="code23">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-struct node {
-    int data;
-    struct node *next;
-};
-
-struct node *top = NULL;
-
-void push(int x) {
-    struct node* newNode = (struct node*) malloc(sizeof(struct node));
-    if(newNode == NULL) {
-        printf("Stack Overflow (Memory not allocated)\n");
-        return;
-    }
-    newNode-&gt;data = x;
-    newNode-&gt;next = top;
-    top = newNode;
-}
-
-void pop() {
-    if(top == NULL) {
-        printf("Stack Underflow\n");
-        return;
-    }
-    struct node *temp = top;
-    printf("Popped element: %d\n", top-&gt;data);
-    top = top-&gt;next;
-    free(temp);
-}
-
-void peek() {
-    if(top == NULL) {
-        printf("Stack is empty\n");
-        return;
-    }
-    printf("Top element: %d\n", top-&gt;data);
-}
-
-void display() {
-    if(top == NULL) {
-        printf("Stack is empty\n");
-        return;
-    }
-    struct node *temp = top;
-    printf("Stack elements: ");
-    while(temp != NULL) {
-        printf("%d ", temp-&gt;data);
-        temp = temp-&gt;next;
-    }
-    printf("\n");
-}
-
-int main() {
-    // This main function is identical to the one for arrays and works perfectly.
-    // You can copy it from the previous example if needed.
-}</code></pre>
+                <button class="copy-btn" data-code-id="node-code1">Copy</button>
+                <pre><code id="node-code1">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Simple Shopping Cart&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; margin: 0; background: #f0f4f7; }
+    header { background: #007BFF; color: white; padding: 15px; text-align: center; }
+    .nav-links { margin-top: 10px; }
+    .nav-links a { color: white; margin: 0 10px; text-decoration: none; }
+    section { padding: 20px; display: none; /* hidden by default */ }
+    section:target { display: block; /* show when linked */ }
+    #catalog { display: block; } /* default visible */
+    .catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .product { background: white; border-radius: 8px; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+    .product img { max-width: 100%; height: auto; border-radius: 4px; }
+    .btn { display: inline-block; margin-top: 10px; padding: 8px 12px; background: #007BFF; color: white; border-radius: 4px; text-decoration: none; }
+    .btn:hover { background:#0056b3; }
+    .form-box { background: white; max-width: 300px; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+    .submit-btn { width: 100%; padding: 10px; background: #007BFF; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    .submit-btn:hover { background:#0056b3; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;My Store&lt;/h1&gt;
+    &lt;div class="nav-links"&gt;
+      &lt;a href="#catalog"&gt;Catalog&lt;/a&gt;
+      &lt;a href="#login"&gt;Login&lt;/a&gt;
+      &lt;a href="#register"&gt;Register&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Catalog Section --&gt;
+  &lt;section id="catalog"&gt;
+    &lt;h2&gt;Catalog&lt;/h2&gt;
+    &lt;div class="catalog"&gt;
+      &lt;div class="product"&gt;
+        &lt;img src="https://via.placeholder.com/150" alt="Product 1"&gt;
+        &lt;h3&gt;Product 1&lt;/h3&gt;
+        &lt;p&gt;₹500&lt;/p&gt;
+        &lt;a href="#" class="btn"&gt;Add to Cart&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="product"&gt;
+        &lt;img src="https://via.placeholder.com/150" alt="Product 2"&gt;
+        &lt;h3&gt;Product 2&lt;/h3&gt;
+        &lt;p&gt;₹700&lt;/p&gt;
+        &lt;a href="#" class="btn"&gt;Add to Cart&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Login Section --&gt;
+  &lt;section id="login"&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;div class="form-box"&gt;
+      &lt;form&gt;
+        &lt;input type="text" name="username" class="input-field" placeholder="Username" required&gt;
+        &lt;input type="password" name="password" class="input-field" placeholder="Password" required&gt;
+        &lt;button type="submit" class="submit-btn"&gt;Login&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Registration Section --&gt;
+  &lt;section id="register"&gt;
+    &lt;h2&gt;Register&lt;/h2&gt;
+    &lt;div class="form-box"&gt;
+      &lt;form&gt;
+        &lt;input type="text" name="name" class="input-field" placeholder="Name" required&gt;
+        &lt;input type="email" name="email" class="input-field" placeholder="Gmail" required&gt;
+        &lt;input type="password" name="password" class="input-field" placeholder="Password" required&gt;
+        &lt;button type="submit" class="submit-btn"&gt;Register&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
             </div>
         </div>
     </div>
+
 </div>
 
 <script>
-    document.getElementById('dsa-btn').addEventListener('click', function() {
-        const dsaContent = document.getElementById('dsa-content');
-        const searchInput = document.getElementById('search-input');
-        dsaContent.style.display = 'block';
-        searchInput.style.display = 'block'; // Show search bar
-    });
-
-    document.getElementById('nodejs-btn').addEventListener('click', function() {
-        // This button will hide the DSA content and search bar.
-        // You can add Node.js content in a similar way.
-        document.getElementById('dsa-content').style.display = 'none';
-        alert('Node.js content coming soon!');
-    });
-
     document.querySelectorAll('.copy-btn').forEach(button => {
         button.addEventListener('click', () => {
             const codeId = button.getAttribute('data-code-id');
@@ -1065,26 +217,404 @@ int main() {
         });
     });
 
-    // Search functionality
-    document.getElementById('search-input').addEventListener('input', function() {
-        const searchTerm = this.value.trim();
-        const questionBlocks = document.querySelectorAll('#dsa-content .question-block');
-        const sectionHeaders = document.querySelectorAll('#dsa-content h2');
+</script>
 
-        questionBlocks.forEach(block => {
-            const titleElement = block.querySelector('h3');
-            if (titleElement) {
-                const questionNumber = titleElement.textContent.split('.')[0].trim();
-                if (searchTerm === '' || questionNumber.startsWith(searchTerm)) {
-                    block.style.display = ''; // Show block
-                } else {
-                    block.style.display = 'none'; // Hide block
-                }
+</body>
+</html>
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Product Catalog&lt;/title&gt;
+  &lt;!-- Bootstrap 5 CSS CDN --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- Header --&gt;
+  &lt;header class="bg-dark text-white text-center py-4"&gt;
+    &lt;h1 class="mb-0"&gt;Our Products&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Product Catalog --&gt;
+  &lt;div class="container my-5"&gt;
+    &lt;div class="row g-4"&gt;
+      &lt;!-- Product 1 --&gt;
+      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
+        &lt;div class="card h-100"&gt;
+          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 1"&gt;
+          &lt;div class="card-body text-center"&gt;
+            &lt;h5 class="card-title"&gt;Product 1&lt;/h5&gt;
+            &lt;p class="card-text"&gt;₹500&lt;/p&gt;
+            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Product 2 --&gt;
+      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
+        &lt;div class="card h-100"&gt;
+          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2"&gt;
+          &lt;div class="card-body text-center"&gt;
+            &lt;h5 class="card-title"&gt;Product 2&lt;/h5&gt;
+            &lt;p class="card-text"&gt;₹600&lt;/p&gt;
+            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Product 3 --&gt;
+      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
+        &lt;div class="card h-100"&gt;
+          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3"&gt;
+          &lt;div class="card-body text-center"&gt;
+            &lt;h5 class="card-title"&gt;Product 3&lt;/h5&gt;
+            &lt;p class="card-text"&gt;₹700&lt;/p&gt;
+            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Product 4 --&gt;
+      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
+        &lt;div class="card h-100"&gt;
+          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4"&gt;
+          &lt;div class="card-body text-center"&gt;
+            &lt;h5 class="card-title"&gt;Product 4&lt;/h5&gt;
+            &lt;p class="card-text"&gt;₹800&lt;/p&gt;
+            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Bootstrap JS Bundle --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block">
+            <h3>2. Build a client-side Student CRUD application using HTML, CSS, and JavaScript</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="node-code2">Copy</button>
+                <pre><code id="node-code2">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Student CRUD&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+    h2 { text-align: center; color: #333; }
+    form { margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    input, button { margin: 5px; padding: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 10px; text-align: center; }
+    button { cursor: pointer; border: none; border-radius: 5px; }
+    .edit { background: #4CAF50; color: white; }
+    .delete { background: #f44336; color: white; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h2&gt;Student CRUD Application&lt;/h2&gt;
+
+  &lt;form id="studentForm"&gt;
+    &lt;input type="text" id="studentId" placeholder="Student ID" required&gt;
+    &lt;input type="text" id="studentName" placeholder="Name" required&gt;
+    &lt;input type="email" id="studentEmail" placeholder="Email" required&gt;
+    &lt;input type="text" id="studentPhone" placeholder="Phone" required&gt;
+    &lt;input type="number" step="0.01" id="studentCgpa" placeholder="CGPA" required&gt;
+    &lt;input type="text" id="studentBranch" placeholder="Branch" required&gt;
+    &lt;button type="submit"&gt;Add / Update Student&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;ID&lt;/th&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+        &lt;th&gt;Phone&lt;/th&gt;
+        &lt;th&gt;CGPA&lt;/th&gt;
+        &lt;th&gt;Branch&lt;/th&gt;
+        &lt;th&gt;Actions&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id="studentTableBody"&gt;&lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;script&gt;
+    let students = [];
+    let editIndex = -1;
+    const form = document.getElementById('studentForm');
+    const tableBody = document.getElementById('studentTableBody');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const id = document.getElementById('studentId').value;
+      const name = document.getElementById('studentName').value;
+      const email = document.getElementById('studentEmail').value;
+      const phone = document.getElementById('studentPhone').value;
+      const cgpa = document.getElementById('studentCgpa').value;
+      const branch = document.getElementById('studentBranch').value;
+
+      const student = { id, name, email, phone, cgpa, branch };
+
+      if (editIndex === -1) {
+        // Create
+        students.push(student);
+      } else {
+        // Update
+        students[editIndex] = student;
+        editIndex = -1;
+      }
+
+      form.reset();
+      renderTable();
+    });
+    function renderTable() {
+      tableBody.innerHTML = "";
+      students.forEach((student, index) =&gt; {
+        const row = `&lt;tr&gt;
+          &lt;td&gt;${student.id}&lt;/td&gt;
+          &lt;td&gt;${student.name}&lt;/td&gt;
+          &lt;td&gt;${student.email}&lt;/td&gt;
+          &lt;td&gt;${student.phone}&lt;/td&gt;
+          &lt;td&gt;${student.cgpa}&lt;/td&gt;
+          &lt;td&gt;${student.branch}&lt;/td&gt;
+          &lt;td&gt;
+            &lt;button class="edit" onclick="editStudent(${index})"&gt;Edit&lt;/button&gt;
+            &lt;button class="delete" onclick="deleteStudent(${index})"&gt;Delete&lt;/button&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;`;
+        tableBody.innerHTML += row;
+      });
+    }
+    function editStudent(index) {
+      const student = students[index];
+      document.getElementById('studentId').value = student.id;
+      document.getElementById('studentName').value = student.name;
+      document.getElementById('studentEmail').value = student.email;
+      document.getElementById('studentPhone').value = student.phone;
+      document.getElementById('studentCgpa').value = student.cgpa;
+      document.getElementById('studentBranch').value = student.branch;
+      editIndex = index;
+    }
+    function deleteStudent(index) {
+      if (confirm("Are you sure you want to delete this student?")) {
+        students.splice(index, 1);
+        renderTable();
+      }
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block">
+            <h3>3. Implement Login and Registration forms with client-side validation using JavaScript</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="node-code3">Copy</button>
+                <pre><code id="node-code3">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Login & Registration&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f4f7; }
+    .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 300px; }
+    h2 { text-align: center; color: #333; }
+    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
+    .input-field:focus { border-color: #007BFF; outline: none; }
+    .submit-btn { width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    .submit-btn:hover { background-color: #0056b3; }
+    .error-message { color: red; text-align: center; display: none; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;!-- login form exactly like your login.html --&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form id="loginForm"&gt;
+      &lt;input type="text" id="username" class="input-field" placeholder="Username" required&gt;
+      &lt;input type="password" id="password" class="input-field" placeholder="Password" required&gt;
+      &lt;button type="submit" class="submit-btn"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;p id="errorMessage" class="error-message"&gt;Please enter both username and password!&lt;/p&gt;
+
+    &lt;!-- very simple registration form --&gt;
+    &lt;h2&gt;Register&lt;/h2&gt;
+    &lt;form id="registerForm"&gt;
+      &lt;input type="text" id="regName" class="input-field" placeholder="Name" required&gt;
+      &lt;input type="email" id="regEmail" class="input-field" placeholder="Gmail" required&gt;
+      &lt;input type="password" id="regPassword" class="input-field" placeholder="Password" required&gt;
+      &lt;button type="submit" class="submit-btn"&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+  &lt;!-- your original login.js kept exactly the same --&gt;
+  &lt;script&gt;
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();  // Prevent form submission
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "" || password === "") {
+        document.getElementById("errorMessage").style.display = "block";
+      } else {
+        document.getElementById("errorMessage").style.display = "none";
+        // You can handle form submission here
+        alert("Login successful!");
+        // window.location.href = "log.html";
+      }
+    });
+  &lt;/script&gt;
+
+  &lt;!-- you can add a second script for registration here if needed --&gt;
+  &lt;script&gt;
+    document.getElementById("registerForm").addEventListener("submit", function(event){
+      event.preventDefault();
+      const name = document.getElementById("regName").value;
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
+
+      if(name && email && password){
+        alert("Registration successful!");
+      } else {
+        alert("Please fill all fields");
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-block">
+            <h3>4. Create basic Login and Registration forms designed for backend submission</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="node-code4">Copy</button>
+                <pre><code id="node-code4">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Login & Registration&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f4f7; }
+    .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 300px; }
+    h2 { text-align: center; color: #333; }
+    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
+    .input-field:focus { border-color: #007BFF; outline: none; }
+    .submit-btn { width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    .submit-btn:hover { background-color: #0056b3; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form action="log.html" method="post"&gt;
+      &lt;input type="text" name="username" placeholder="Username" required&gt;
+      &lt;input type="password" name="password" placeholder="Password" required&gt;
+      &lt;button type="submit"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;h2&gt;Register&lt;/h2&gt;
+    &lt;form action="register.html" method="post"&gt;
+      &lt;input type="text" name="name" placeholder="Name" required&gt;
+      &lt;input type="email" name="email" placeholder="Gmail" required&gt;
+      &lt;input type="password" name="password" placeholder="Password" required&gt;
+      &lt;button type="submit"&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-block">
+            <h3>5. Design a single-page layout for a shopping site with Catalog, Login, and Register sections</h3>
+            <div class="code-container">
+                <button class="enlarge-btn">Show More</button>
+                <button class="copy-btn" data-code-id="node-code5">Copy</button>
+                <pre><code id="node-code5">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Simple Shopping Cart&lt;/title&gt;
+  &lt;style&gt;
+    section { display: none; }
+    section:target { display: block; }
+    #catalog { display: block; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;My Store&lt;/h1&gt;
+    &lt;div class="nav-links"&gt;
+      &lt;a href="#catalog"&gt;Catalog&lt;/a&gt;
+      &lt;a href="#login"&gt;Login&lt;/a&gt;
+      &lt;a href="#register"&gt;Register&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;section id="catalog"&gt;
+    &lt;h2&gt;Catalog&lt;/h2&gt;
+    &lt;div class="product"&gt;Product 1&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section id="login"&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form&gt;...&lt;/form&gt;
+  &lt;/section&gt;
+  &lt;section id="register"&gt;
+    &lt;h2&gt;Register&lt;/h2&gt;
+    &lt;form&gt;...&lt;/form&gt;
+  &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const codeId = button.getAttribute('data-code-id');
+            const codeElement = document.getElementById(codeId);
+            const codeToCopy = codeElement.innerText;
+
+            navigator.clipboard.writeText(codeToCopy).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    });
+
+    document.querySelectorAll('.enlarge-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const codeContainer = button.parentElement;
+            codeContainer.classList.toggle('enlarged');
+            if (codeContainer.classList.contains('enlarged')) {
+                button.textContent = 'Show Less';
+            } else {
+                button.textContent = 'Show More';
             }
         });
-
-        // Hide section headers (like 'DSA - Doubly Linked List') if search is active
-        sectionHeaders.forEach(h2 => h2.style.display = searchTerm === '' ? '' : 'none');
     });
 </script>
 
