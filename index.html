@@ -1,622 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Snippets</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #0056b3;
-        }
-        .code-section {
-            display: block; 
-        }
-        .question-block {
-            margin-bottom: 30px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-        }
-        .code-container {
-            position: relative;
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            max-height: 250px; /* Initial short height */
-            transition: max-height 0.4s ease-in-out;
-        }
-        pre {
-            margin: 0;
-        }
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 10px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .copy-btn:hover {
-            background-color: #5a6268;
-        }
-        .enlarge-btn {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            padding: 5px 10px;
-            background-color: #333a40;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            z-index: 5; /* Ensure it's clickable */
-        }
-        .code-container.enlarged {
-            max-height: 1200px; /* A large value to show all content */
-        }
-        #search-input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
-            display: none; /* Hidden until DSA section is shown */
-        }
-    </style>
+  <title>Ceromancy Candle Wax Reading | Insight & Guidance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Courgette&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fffbe9;
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 36px 24px;
+      max-width: 420px;
+      margin: 48px auto;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
+      text-align: center;
+    }
+    h1 {
+      color: #b16a33;
+      font-family: 'Courgette', cursive;
+      margin-bottom: 18px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    .image {
+      margin: 30px 0 15px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1.2s forwards;
+      animation-delay: 0.2s;
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    p {
+      color: #574930;
+      font-size: 1.12em;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .countdown {
+      font-size: 1.25em;
+      color: #d54c20;
+      font-weight: 700;
+      margin-bottom: 14px;
+      margin-top: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1px;
+      animation: popDigits 0.8s;
+    }
+    @keyframes popDigits {
+      from {
+        opacity: 0.5;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1.0);
+      }
+    }
+    .limited-seats {
+      font-size: 1.03em;
+      color: #b16a33;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .cta-button {
+      padding: 15px 35px;
+      background: linear-gradient(90deg, #25D366 60%, #128C7E 100%);
+      color: #fff;
+      border: none;
+      border-radius: 26px;
+      font-size: 21px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(36, 209, 102, 0.15);
+      cursor: pointer;
+      transition: background 0.25s, box-shadow 0.25s;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      margin-top: 14px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 #25D36670;
+        transform: scale(1);
+      }
+      60% {
+        box-shadow: 0 0 12px 8px #25D36640;
+        transform: scale(1.04);
+      }
+      100% {
+        box-shadow: 0 0 0 0 #25D36670;
+        transform: scale(1);
+      }
+    }
+    .cta-button:hover {
+      background: linear-gradient(90deg, #1fae5a 60%, #086154 100%);
+      box-shadow: 0 8px 24px rgba(18,140,126,0.20);
+      transform: scale(1.06);
+    }
+    .testimonials {
+      font-style: italic;
+      color: #b16a33;
+      margin-top: 24px;
+      font-size: 1em;
+      font-family: 'Courgette', cursive;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeUp 1.4s 0.6s forwards;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 18px 6px;
+        max-width: 98%;
+      }
+      .image img {
+        width: 98%;
+        max-width: 320px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Code Examples</h1>
-
-    <div id="nodejs-content" class="code-section">
-        <h2>Node.js Frontend Examples</h2>
-
-        <!-- Question 1 -->
-        <div class="question-block">
-            <h3>1. Create a responsive product catalog page using Bootstrap 5</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="node-code1">Copy</button>
-                <pre><code id="node-code1">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Simple Shopping Cart&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: Arial, sans-serif; margin: 0; background: #f0f4f7; }
-    header { background: #007BFF; color: white; padding: 15px; text-align: center; }
-    .nav-links { margin-top: 10px; }
-    .nav-links a { color: white; margin: 0 10px; text-decoration: none; }
-    section { padding: 20px; display: none; /* hidden by default */ }
-    section:target { display: block; /* show when linked */ }
-    #catalog { display: block; } /* default visible */
-    .catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .product { background: white; border-radius: 8px; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
-    .product img { max-width: 100%; height: auto; border-radius: 4px; }
-    .btn { display: inline-block; margin-top: 10px; padding: 8px 12px; background: #007BFF; color: white; border-radius: 4px; text-decoration: none; }
-    .btn:hover { background:#0056b3; }
-    .form-box { background: white; max-width: 300px; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
-    .submit-btn { width: 100%; padding: 10px; background: #007BFF; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
-    .submit-btn:hover { background:#0056b3; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;header&gt;
-    &lt;h1&gt;My Store&lt;/h1&gt;
-    &lt;div class="nav-links"&gt;
-      &lt;a href="#catalog"&gt;Catalog&lt;/a&gt;
-      &lt;a href="#login"&gt;Login&lt;/a&gt;
-      &lt;a href="#register"&gt;Register&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/header&gt;
-
-  &lt;!-- Catalog Section --&gt;
-  &lt;section id="catalog"&gt;
-    &lt;h2&gt;Catalog&lt;/h2&gt;
-    &lt;div class="catalog"&gt;
-      &lt;div class="product"&gt;
-        &lt;img src="https://via.placeholder.com/150" alt="Product 1"&gt;
-        &lt;h3&gt;Product 1&lt;/h3&gt;
-        &lt;p&gt;₹500&lt;/p&gt;
-        &lt;a href="#" class="btn"&gt;Add to Cart&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="product"&gt;
-        &lt;img src="https://via.placeholder.com/150" alt="Product 2"&gt;
-        &lt;h3&gt;Product 2&lt;/h3&gt;
-        &lt;p&gt;₹700&lt;/p&gt;
-        &lt;a href="#" class="btn"&gt;Add to Cart&lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;!-- Login Section --&gt;
-  &lt;section id="login"&gt;
-    &lt;h2&gt;Login&lt;/h2&gt;
-    &lt;div class="form-box"&gt;
-      &lt;form&gt;
-        &lt;input type="text" name="username" class="input-field" placeholder="Username" required&gt;
-        &lt;input type="password" name="password" class="input-field" placeholder="Password" required&gt;
-        &lt;button type="submit" class="submit-btn"&gt;Login&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;!-- Registration Section --&gt;
-  &lt;section id="register"&gt;
-    &lt;h2&gt;Register&lt;/h2&gt;
-    &lt;div class="form-box"&gt;
-      &lt;form&gt;
-        &lt;input type="text" name="name" class="input-field" placeholder="Name" required&gt;
-        &lt;input type="email" name="email" class="input-field" placeholder="Gmail" required&gt;
-        &lt;input type="password" name="password" class="input-field" placeholder="Password" required&gt;
-        &lt;button type="submit" class="submit-btn"&gt;Register&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
+  <div class="container">
+    <h1>Success is not luck — it’s alignment. Align your space with Vastu</h1>
+    <div class="image">
+      <img src="p.jpg" alt="Ceromancy candle wax" width="340" style="border-radius:10px; box-shadow: 0 1px 14px #b16a338c;">
     </div>
 
-</div>
+    <div class="limited-seats">Limited seats! Event starts in:</div>
+    <div class="countdown" id="countdown"></div>
 
-<script>
-    document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const codeId = button.getAttribute('data-code-id');
-            const codeElement = document.getElementById(codeId);
-            const codeToCopy = codeElement.innerText;
+    <a href="https://chat.whatsapp.com/HpNfYha5evrF0hyuwLNjip?mode=gi_t" target="_blank">
+      <button class="cta-button">Join our WhatsApp group</button>
+    </a>
 
-            navigator.clipboard.writeText(codeToCopy).then(() => {
-                button.textContent = 'Copied!';
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        });
-    });
+    <p>
+      2-hour online Zoom Astro Vastu session on Saturday, 31st January with Suman Arora for life, wealth, and success guidance..<br>
+      <br>Ready for answers? Experience a session with a trusted practitioner today!
+    </p>
+    <div class="testimonials">“Amazingly accurate! I found clarity and peace.” – Sarah D.</div>
+  </div>
 
-    document.querySelectorAll('.enlarge-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const codeContainer = button.parentElement;
-            codeContainer.classList.toggle('enlarged');
-            if (codeContainer.classList.contains('enlarged')) {
-                button.textContent = 'Show Less';
-            } else {
-                button.textContent = 'Show More';
-            }
-        });
-    });
+  <script>
+    // Countdown to 19 August 2026, 9:00 PM IST (IST is UTC+5:30)
+    const countDownDate = new Date('2026-01-31T15:30:00Z').getTime();
 
-</script>
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
 
-</body>
-</html>
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Product Catalog&lt;/title&gt;
-  &lt;!-- Bootstrap 5 CSS CDN --&gt;
-  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-  &lt;!-- Header --&gt;
-  &lt;header class="bg-dark text-white text-center py-4"&gt;
-    &lt;h1 class="mb-0"&gt;Our Products&lt;/h1&gt;
-  &lt;/header&gt;
-
-  &lt;!-- Product Catalog --&gt;
-  &lt;div class="container my-5"&gt;
-    &lt;div class="row g-4"&gt;
-      &lt;!-- Product 1 --&gt;
-      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
-        &lt;div class="card h-100"&gt;
-          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 1"&gt;
-          &lt;div class="card-body text-center"&gt;
-            &lt;h5 class="card-title"&gt;Product 1&lt;/h5&gt;
-            &lt;p class="card-text"&gt;₹500&lt;/p&gt;
-            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;!-- Product 2 --&gt;
-      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
-        &lt;div class="card h-100"&gt;
-          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2"&gt;
-          &lt;div class="card-body text-center"&gt;
-            &lt;h5 class="card-title"&gt;Product 2&lt;/h5&gt;
-            &lt;p class="card-text"&gt;₹600&lt;/p&gt;
-            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;!-- Product 3 --&gt;
-      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
-        &lt;div class="card h-100"&gt;
-          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3"&gt;
-          &lt;div class="card-body text-center"&gt;
-            &lt;h5 class="card-title"&gt;Product 3&lt;/h5&gt;
-            &lt;p class="card-text"&gt;₹700&lt;/p&gt;
-            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;!-- Product 4 --&gt;
-      &lt;div class="col-6 col-md-4 col-lg-3"&gt;
-        &lt;div class="card h-100"&gt;
-          &lt;img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4"&gt;
-          &lt;div class="card-body text-center"&gt;
-            &lt;h5 class="card-title"&gt;Product 4&lt;/h5&gt;
-            &lt;p class="card-text"&gt;₹800&lt;/p&gt;
-            &lt;a href="#" class="btn btn-primary btn-sm"&gt;View&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;!-- Bootstrap JS Bundle --&gt;
-  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="question-block">
-            <h3>2. Build a client-side Student CRUD application using HTML, CSS, and JavaScript</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="node-code2">Copy</button>
-                <pre><code id="node-code2">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Student CRUD&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
-    h2 { text-align: center; color: #333; }
-    form { margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    input, button { margin: 5px; padding: 8px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
-    table, th, td { border: 1px solid #ccc; }
-    th, td { padding: 10px; text-align: center; }
-    button { cursor: pointer; border: none; border-radius: 5px; }
-    .edit { background: #4CAF50; color: white; }
-    .delete { background: #f44336; color: white; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-  &lt;h2&gt;Student CRUD Application&lt;/h2&gt;
-
-  &lt;form id="studentForm"&gt;
-    &lt;input type="text" id="studentId" placeholder="Student ID" required&gt;
-    &lt;input type="text" id="studentName" placeholder="Name" required&gt;
-    &lt;input type="email" id="studentEmail" placeholder="Email" required&gt;
-    &lt;input type="text" id="studentPhone" placeholder="Phone" required&gt;
-    &lt;input type="number" step="0.01" id="studentCgpa" placeholder="CGPA" required&gt;
-    &lt;input type="text" id="studentBranch" placeholder="Branch" required&gt;
-    &lt;button type="submit"&gt;Add / Update Student&lt;/button&gt;
-  &lt;/form&gt;
-
-  &lt;table&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;ID&lt;/th&gt;
-        &lt;th&gt;Name&lt;/th&gt;
-        &lt;th&gt;Email&lt;/th&gt;
-        &lt;th&gt;Phone&lt;/th&gt;
-        &lt;th&gt;CGPA&lt;/th&gt;
-        &lt;th&gt;Branch&lt;/th&gt;
-        &lt;th&gt;Actions&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody id="studentTableBody"&gt;&lt;/tbody&gt;
-  &lt;/table&gt;
-  &lt;script&gt;
-    let students = [];
-    let editIndex = -1;
-    const form = document.getElementById('studentForm');
-    const tableBody = document.getElementById('studentTableBody');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const id = document.getElementById('studentId').value;
-      const name = document.getElementById('studentName').value;
-      const email = document.getElementById('studentEmail').value;
-      const phone = document.getElementById('studentPhone').value;
-      const cgpa = document.getElementById('studentCgpa').value;
-      const branch = document.getElementById('studentBranch').value;
-
-      const student = { id, name, email, phone, cgpa, branch };
-
-      if (editIndex === -1) {
-        // Create
-        students.push(student);
-      } else {
-        // Update
-        students[editIndex] = student;
-        editIndex = -1;
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = "Event Started!";
+        return;
       }
 
-      form.reset();
-      renderTable();
-    });
-    function renderTable() {
-      tableBody.innerHTML = "";
-      students.forEach((student, index) =&gt; {
-        const row = `&lt;tr&gt;
-          &lt;td&gt;${student.id}&lt;/td&gt;
-          &lt;td&gt;${student.name}&lt;/td&gt;
-          &lt;td&gt;${student.email}&lt;/td&gt;
-          &lt;td&gt;${student.phone}&lt;/td&gt;
-          &lt;td&gt;${student.cgpa}&lt;/td&gt;
-          &lt;td&gt;${student.branch}&lt;/td&gt;
-          &lt;td&gt;
-            &lt;button class="edit" onclick="editStudent(${index})"&gt;Edit&lt;/button&gt;
-            &lt;button class="delete" onclick="deleteStudent(${index})"&gt;Delete&lt;/button&gt;
-          &lt;/td&gt;
-        &lt;/tr&gt;`;
-        tableBody.innerHTML += row;
-      });
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // Re-trigger the popDigits animation
+      document.getElementById('countdown').style.animation = 'none';
+      void document.getElementById('countdown').offsetWidth;
+      document.getElementById('countdown').style.animation = null;
     }
-    function editStudent(index) {
-      const student = students[index];
-      document.getElementById('studentId').value = student.id;
-      document.getElementById('studentName').value = student.name;
-      document.getElementById('studentEmail').value = student.email;
-      document.getElementById('studentPhone').value = student.phone;
-      document.getElementById('studentCgpa').value = student.cgpa;
-      document.getElementById('studentBranch').value = student.branch;
-      editIndex = index;
-    }
-    function deleteStudent(index) {
-      if (confirm("Are you sure you want to delete this student?")) {
-        students.splice(index, 1);
-        renderTable();
-      }
-    }
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
 
-        <!-- Question 3 -->
-        <div class="question-block">
-            <h3>3. Implement Login and Registration forms with client-side validation using JavaScript</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="node-code3">Copy</button>
-                <pre><code id="node-code3">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Login & Registration&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f4f7; }
-    .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 300px; }
-    h2 { text-align: center; color: #333; }
-    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
-    .input-field:focus { border-color: #007BFF; outline: none; }
-    .submit-btn { width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
-    .submit-btn:hover { background-color: #0056b3; }
-    .error-message { color: red; text-align: center; display: none; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class="container"&gt;
-    &lt;!-- login form exactly like your login.html --&gt;
-    &lt;h2&gt;Login&lt;/h2&gt;
-    &lt;form id="loginForm"&gt;
-      &lt;input type="text" id="username" class="input-field" placeholder="Username" required&gt;
-      &lt;input type="password" id="password" class="input-field" placeholder="Password" required&gt;
-      &lt;button type="submit" class="submit-btn"&gt;Login&lt;/button&gt;
-    &lt;/form&gt;
-    &lt;p id="errorMessage" class="error-message"&gt;Please enter both username and password!&lt;/p&gt;
-
-    &lt;!-- very simple registration form --&gt;
-    &lt;h2&gt;Register&lt;/h2&gt;
-    &lt;form id="registerForm"&gt;
-      &lt;input type="text" id="regName" class="input-field" placeholder="Name" required&gt;
-      &lt;input type="email" id="regEmail" class="input-field" placeholder="Gmail" required&gt;
-      &lt;input type="password" id="regPassword" class="input-field" placeholder="Password" required&gt;
-      &lt;button type="submit" class="submit-btn"&gt;Register&lt;/button&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-
-  &lt;!-- your original login.js kept exactly the same --&gt;
-  &lt;script&gt;
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault();  // Prevent form submission
-
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      if (username === "" || password === "") {
-        document.getElementById("errorMessage").style.display = "block";
-      } else {
-        document.getElementById("errorMessage").style.display = "none";
-        // You can handle form submission here
-        alert("Login successful!");
-        // window.location.href = "log.html";
-      }
-    });
-  &lt;/script&gt;
-
-  &lt;!-- you can add a second script for registration here if needed --&gt;
-  &lt;script&gt;
-    document.getElementById("registerForm").addEventListener("submit", function(event){
-      event.preventDefault();
-      const name = document.getElementById("regName").value;
-      const email = document.getElementById("regEmail").value;
-      const password = document.getElementById("regPassword").value;
-
-      if(name && email && password){
-        alert("Registration successful!");
-      } else {
-        alert("Please fill all fields");
-      }
-    });
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 4 -->
-        <div class="question-block">
-            <h3>4. Create basic Login and Registration forms designed for backend submission</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="node-code4">Copy</button>
-                <pre><code id="node-code4">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Login & Registration&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f4f7; }
-    .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 300px; }
-    h2 { text-align: center; color: #333; }
-    .input-field { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
-    .input-field:focus { border-color: #007BFF; outline: none; }
-    .submit-btn { width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
-    .submit-btn:hover { background-color: #0056b3; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class="container"&gt;
-    &lt;h2&gt;Login&lt;/h2&gt;
-    &lt;form action="log.html" method="post"&gt;
-      &lt;input type="text" name="username" placeholder="Username" required&gt;
-      &lt;input type="password" name="password" placeholder="Password" required&gt;
-      &lt;button type="submit"&gt;Login&lt;/button&gt;
-    &lt;/form&gt;
-    &lt;h2&gt;Register&lt;/h2&gt;
-    &lt;form action="register.html" method="post"&gt;
-      &lt;input type="text" name="name" placeholder="Name" required&gt;
-      &lt;input type="email" name="email" placeholder="Gmail" required&gt;
-      &lt;input type="password" name="password" placeholder="Password" required&gt;
-      &lt;button type="submit"&gt;Register&lt;/button&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
-
-        <!-- Question 5 -->
-        <div class="question-block">
-            <h3>5. Design a single-page layout for a shopping site with Catalog, Login, and Register sections</h3>
-            <div class="code-container">
-                <button class="enlarge-btn">Show More</button>
-                <button class="copy-btn" data-code-id="node-code5">Copy</button>
-                <pre><code id="node-code5">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Simple Shopping Cart&lt;/title&gt;
-  &lt;style&gt;
-    section { display: none; }
-    section:target { display: block; }
-    #catalog { display: block; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;header&gt;
-    &lt;h1&gt;My Store&lt;/h1&gt;
-    &lt;div class="nav-links"&gt;
-      &lt;a href="#catalog"&gt;Catalog&lt;/a&gt;
-      &lt;a href="#login"&gt;Login&lt;/a&gt;
-      &lt;a href="#register"&gt;Register&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/header&gt;
-  &lt;section id="catalog"&gt;
-    &lt;h2&gt;Catalog&lt;/h2&gt;
-    &lt;div class="product"&gt;Product 1&lt;/div&gt;
-  &lt;/section&gt;
-  &lt;section id="login"&gt;
-    &lt;h2&gt;Login&lt;/h2&gt;
-    &lt;form&gt;...&lt;/form&gt;
-  &lt;/section&gt;
-  &lt;section id="register"&gt;
-    &lt;h2&gt;Register&lt;/h2&gt;
-    &lt;form&gt;...&lt;/form&gt;
-  &lt;/section&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const codeId = button.getAttribute('data-code-id');
-            const codeElement = document.getElementById(codeId);
-            const codeToCopy = codeElement.innerText;
-
-            navigator.clipboard.writeText(codeToCopy).then(() => {
-                button.textContent = 'Copied!';
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        });
-    });
-
-    document.querySelectorAll('.enlarge-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const codeContainer = button.parentElement;
-            codeContainer.classList.toggle('enlarged');
-            if (codeContainer.classList.contains('enlarged')) {
-                button.textContent = 'Show Less';
-            } else {
-                button.textContent = 'Show More';
-            }
-        });
-    });
-</script>
-
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
