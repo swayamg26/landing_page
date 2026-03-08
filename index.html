@@ -1,169 +1,188 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>2 Day Free Crystal Therapy Masterclass</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Your Eventful Year | Free Numerology Session</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Courgette&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Courgette&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      background: #fffbe9;
-      font-family: 'Montserrat', Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-    }
+<style>
 
-    .container {
-      background: #fff;
-      padding: 36px 24px;
-      max-width: 420px;
-      margin: 48px auto;
-      border-radius: 18px;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
-      text-align: center;
-    }
+body{
+background:#fffbe9;
+font-family:'Montserrat',Arial;
+display:flex;
+flex-direction:column;
+align-items:center;
+margin:0;
+}
 
-    h1 {
-      color: #b16a33;
-      font-family: 'Courgette', cursive;
-      margin-bottom: 18px;
-      font-size: 2em;
-      letter-spacing: 1px;
-    }
+.container{
+background:#fff;
+padding:36px 24px;
+max-width:430px;
+margin:40px auto;
+border-radius:18px;
+box-shadow:0 2px 24px rgba(0,0,0,0.09);
+text-align:center;
+}
 
-    .image {
-      margin: 30px 0 15px 0;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeUp 1.2s forwards;
-      animation-delay: 0.2s;
-    }
+h1{
+color:#b16a33;
+font-family:'Courgette',cursive;
+font-size:2em;
+margin-bottom:15px;
+}
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.image{
+margin:25px 0;
+}
 
-    p {
-      color: #574930;
-      font-size: 1.1em;
-      margin-bottom: 20px;
-    }
+p{
+color:#574930;
+font-size:1.05em;
+line-height:1.6em;
+}
 
-    .countdown {
-      font-size: 1.25em;
-      color: #d54c20;
-      font-weight: 700;
-      margin-bottom: 14px;
-      margin-top: 10px;
-      animation: popDigits 0.8s;
-    }
+.highlight{
+color:#d54c20;
+font-weight:bold;
+}
 
-    .limited-seats {
-      font-size: 1.05em;
-      color: #b16a33;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+ul{
+text-align:left;
+color:#574930;
+font-size:1em;
+padding-left:20px;
+}
 
-    .cta-button {
-      padding: 15px 35px;
-      background: linear-gradient(90deg, #25D366 60%, #128C7E 100%);
-      color: #fff;
-      border: none;
-      border-radius: 26px;
-      font-size: 20px;
-      font-weight: 700;
-      box-shadow: 0 4px 16px rgba(36, 209, 102, 0.15);
-      cursor: pointer;
-      margin-bottom: 32px;
-      margin-top: 14px;
-      animation: pulse 1.5s infinite;
-    }
+.countdown{
+font-size:1.25em;
+color:#d54c20;
+font-weight:bold;
+margin:12px 0;
+}
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 #25D36670; }
-      60% { box-shadow: 0 0 12px 8px #25D36640; }
-      100% { box-shadow: 0 0 0 0 #25D36670; }
-    }
+.cta-button{
+padding:15px 35px;
+background:linear-gradient(90deg,#25D366,#128C7E);
+color:#fff;
+border:none;
+border-radius:25px;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+margin-top:15px;
+animation:pulse 1.5s infinite;
+}
 
-    .cta-button:hover {
-      background: linear-gradient(90deg, #1fae5a 60%, #086154 100%);
-    }
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.05)}
+100%{transform:scale(1)}
+}
 
-    .testimonials {
-      font-style: italic;
-      color: #b16a33;
-      margin-top: 24px;
-      font-size: 1em;
-      font-family: 'Courgette', cursive;
-    }
+.cta-button:hover{
+background:linear-gradient(90deg,#1fae5a,#086154);
+}
 
-    @media (max-width:480px){
-      .container{
-        padding:18px 6px;
-        max-width:98%;
-      }
-    }
+.session-box{
+background:#fff3d6;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+font-size:1em;
+}
 
-  </style>
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Unlock the Power of Crystals & Transform Your Life</h1>
+<h1>Discover the Year That Can Change Your Life</h1>
 
 <div class="image">
-<img src="p.jpg" width="340" style="border-radius:10px; box-shadow:0 1px 14px #b16a338c;">
+<img src="p.jpg" width="340" style="border-radius:10px;box-shadow:0 1px 14px #b16a338c;">
 </div>
-
-<div class="limited-seats">⚡ 2-Day FREE Crystal Therapy Class Starts In:</div>
-
-<div class="countdown" id="countdown"></div>
-
-<a href="https://chat.whatsapp.com/CEVFcpseYha5Kr5dpImM5E?mode=gi_t" target="_blank">
-<button class="cta-button">Join WhatsApp Group Now</button>
-</a>
 
 <p>
 
-Join our <b>2-Day FREE Crystal Therapy Masterclass</b> and discover how powerful crystals can transform your life and energy.
+Have you ever wondered why some years suddenly bring huge success, opportunities, or turning points?
 
 <br><br>
 
-✨ Learn how crystals attract wealth and success  
-<br>✨ Remove negative energy from your home  
-<br>✨ Powerful crystals for protection and healing  
-<br>✨ How to activate and program crystals  
-<br>✨ Secret remedies used by experts  
+A new job, a business breakthrough, meeting the right person, or a moment that changes your entire life direction.
 
 <br><br>
 
-This <b>LIVE Zoom Training with Gurpreet kaur in association with Suman Arora</b> will show you how to use crystal energy to improve your life.
+These are <span class="highlight">not random.</span>
 
 <br><br>
 
-⚠️ Completely FREE but seats are limited.
+In numerology, every person has a powerful <b>“Eventful Year”</b> — a time when life-changing opportunities naturally appear.
 
 </p>
 
-<div class="testimonials">
-“After learning crystal therapy my life became more positive and peaceful!” – Participant
+<h3 style="color:#b16a33">In This FREE Session You Will Learn</h3>
+
+<ul>
+<li>✔ What an Eventful Year is and how it influences your life</li>
+<li>✔ How numerology reveals turning points in destiny</li>
+<li>✔ Simple calculation to identify your powerful year</li>
+<li>✔ How to prepare for opportunities and success</li>
+<li>✔ Why some years become life-defining moments</li>
+</ul>
+
+<p>
+
+Imagine knowing…
+
+<br><br>
+
+✨ The year when your career or business may take a big leap  
+<br>✨ When important opportunities will appear  
+<br>✨ When life may bring major positive transformation  
+
+</p>
+
+<div class="session-box">
+
+<b>Free Live Session Details</b>
+
+<br><br>
+
+📅 Date: 9th March  
+<br>⏰ Time: 8:35 PM  
+<br>🎁 Entry: 100% FREE  
+
+<br><br>
+
+<span class="highlight">Limited Seats – Reserve Your Spot Now</span>
+
 </div>
+
+<div class="countdown" id="countdown"></div>
+
+<a href="https://chat.whatsapp.com/GgHgfovPvL8KwuN2KC5Nx9?mode=hqctcla" target="_blank">
+
+<button class="cta-button">
+Join Free Session Now
+</button>
+
+</a>
+
+<p style="margin-top:20px;font-style:italic;color:#b16a33">
+Your life-changing moment may be closer than you think.
+</p>
 
 </div>
 
 
 <script>
 
-const countDownDate = new Date('2026-01-31T15:30:00Z').getTime();
+const countDownDate = new Date("Mar 9, 2026 20:35:00").getTime();
 
 function updateCountdown(){
 
@@ -171,17 +190,16 @@ const now = new Date().getTime();
 const distance = countDownDate - now;
 
 if(distance < 0){
-document.getElementById("countdown").innerHTML="Class Started!";
+document.getElementById("countdown").innerHTML="Session Started!";
 return;
 }
 
-const days = Math.floor(distance/(1000*60*60*24));
 const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
 const seconds = Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("countdown").innerHTML =
-days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
+"Session starts in: "+hours+"h "+minutes+"m "+seconds+"s";
 
 }
 
@@ -190,5 +208,4 @@ setInterval(updateCountdown,1000);
 </script>
 
 </body>
-
 </html>
